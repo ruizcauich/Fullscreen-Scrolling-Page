@@ -1,0 +1,84 @@
+body,html{
+    margin: 0;
+}
+#section,body{
+    height: 100vh;
+}
+.section{
+    position: fixed; width: 100%; height: 100vh;
+    display: block;
+}
+.section1{ background-color: #165d9b; }
+.section2{ background-color: #8827a0}
+.section3{ background-color: #27a05f}
+
+.section-center-up{
+    top:-100%;
+    animation-name: centerUp;
+    animation-duration: 1s;
+}
+
+.section-up-center{
+    top:0;
+    animation-name: upCenter;
+    animation-duration: 1s;
+}
+.section-bottom-center{
+    top:0;
+    animation-name: bottomCenter;
+    animation-duration: 1s;
+}
+
+.section-center-bottom{
+    top:0;
+    animation-name: centerBottom;
+    animation-duration: 1s;
+}
+
+
+
+
+@-webkit-keyframes centerUp{
+    from { top:0} 
+    to { top:-100%}
+}
+
+@keyframes centerUp {
+    from { top:0} 
+    to { top:-100%}
+}
+@-webkit-keyframes upCenter {
+    from { top:-100%} 
+    to { top:0}
+}
+
+@keyframes upCenter {
+    from { top:-100%} 
+    to { top:0}
+}
+
+@-webkit-keyframes bottomCenter {
+    from { top:100%} 
+    to { top:0}
+}
+
+@keyframes bottomCenter {
+    from { top:100%} 
+    to { top:0}
+}
+@-webkit-keyframes centerBottom {
+    from { top:0} 
+    to { top:100%}
+}
+
+@keyframes centerBottom {
+    from { top:0} 
+    to { top:100%}
+}
+
+.content{
+    height: 100vh; color: #fff; text-align: center; overflow: hidden;
+}
+h1{ position: relative;
+    top: 50%;
+}
