@@ -11,23 +11,24 @@ zIndex=2000;
 // This, makes sure if it's time to trigger the transition
 // forward or reverse
 function wheelFunction(event) {
+    // There is a current transtion
     if (onAction) {
         return;
     }
     deltaY += event.deltaY;
-    if (deltaY >= 300) {
+    if ( (event.deltaMode== 0 && deltaY >= 300) || (event.deltaMode== 1 && deltaY >= 20) ) {
         onAction = true;
         scrolldown();
 
-    } else if (deltaY <= -300) {
+    } else if ( (event.deltaMode== 0 && deltaY <= -300) || (event.deltaMode== 1 && deltaY <= -20) ) {
         onAction = true;
         scrollup();
     }
+    //console.log("DeltaMode " + event.deltaMode + "; deltaY= " + event.deltaY + ";   totalDeltaY= " + deltaY);
 
 }
 // the user is scrolling down the page
 function scrolldown() {
-    
     sections[activeSection].classList.remove("section-up-center");
     sections[activeSection].classList.remove("section-bottom-center");
     if (activeSection < sections.length - 1)
@@ -40,8 +41,6 @@ function scrolldown() {
 }
 // the user is scrolling up the page
 function scrollup() {
-    
-    
     sections[activeSection].classList.remove("section-bottom-center");
     sections[activeSection].classList.remove("section-up-center");
     if( activeSection>0)
@@ -52,7 +51,6 @@ function scrollup() {
     }else{ onAction=false }
     animationFinished();
     moveIndex(-1);
-   
     deltaY = 0;
 }
 // set onAction to false after 1s (the duration of the transition)
